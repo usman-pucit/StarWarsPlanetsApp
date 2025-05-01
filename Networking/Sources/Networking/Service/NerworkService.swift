@@ -8,7 +8,7 @@
 import Foundation
 
 // Define a protocol for the network service
-public protocol NerworkServiceType {
+public protocol NetworkServiceType {
     func fetch(_ request: URLRequest) async throws -> (Data, HTTPURLResponse)
 }
 
@@ -17,7 +17,7 @@ public class NerworkService {
     public init() { }
 }
 
-extension NerworkService: NerworkServiceType {
+extension NerworkService: NetworkServiceType {
     public func fetch(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
         let (data, response) = try await URLSession.shared.data(for: request)
         

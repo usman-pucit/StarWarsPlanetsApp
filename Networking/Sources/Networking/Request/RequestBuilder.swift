@@ -17,7 +17,7 @@ public struct RequestBuilder {
     private let scheme: String
     private let queryItems: [URLQueryItem]
     
-    init(
+    public init(
         host: String,
         path: String,
         scheme: String = "https",
