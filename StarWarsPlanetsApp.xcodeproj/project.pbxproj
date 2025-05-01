@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		96858BFB2DC39279005BE667 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 96858BFA2DC39279005BE667 /* Networking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		96858B662DC38851005BE667 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		96858B552DC38850005BE667 /* StarWarsPlanetsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsPlanetsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96858B652DC38851005BE667 /* StarWarsPlanetsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96858B6F2DC38851005BE667 /* StarWarsPlanetsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96858BF72DC39030005BE667 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96858BFB2DC39279005BE667 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +81,7 @@
 		96858B4C2DC38850005BE667 = {
 			isa = PBXGroup;
 			children = (
+				96858BF72DC39030005BE667 /* Networking */,
 				96858B572DC38850005BE667 /* StarWarsPlanetsApp */,
 				96858B682DC38851005BE667 /* StarWarsPlanetsAppTests */,
 				96858B722DC38851005BE667 /* StarWarsPlanetsAppUITests */,
@@ -112,6 +119,7 @@
 			);
 			name = StarWarsPlanetsApp;
 			packageProductDependencies = (
+				96858BFA2DC39279005BE667 /* Networking */,
 			);
 			productName = StarWarsPlanetsApp;
 			productReference = 96858B552DC38850005BE667 /* StarWarsPlanetsApp.app */;
@@ -195,6 +203,9 @@
 			);
 			mainGroup = 96858B4C2DC38850005BE667;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				96858BF92DC39279005BE667 /* XCLocalSwiftPackageReference "Networking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 96858B562DC38850005BE667 /* Products */;
 			projectDirPath = "";
@@ -558,6 +569,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		96858BF92DC39279005BE667 /* XCLocalSwiftPackageReference "Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Networking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96858BFA2DC39279005BE667 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96858B4D2DC38850005BE667 /* Project object */;
 }

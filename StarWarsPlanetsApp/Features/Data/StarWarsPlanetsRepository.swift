@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 // Define a protocol for the repository
 protocol StarWarsPlanetsRepositoryType {
@@ -14,7 +15,13 @@ protocol StarWarsPlanetsRepositoryType {
 
 // MARK: - Repository
 final class StarWarsPlanetsRepository {
+    private let networkService: NerworkServiceType
     
+    init(
+        networkService: NerworkServiceType = NerworkService()
+    ) {
+        self.networkService = networkService
+    }
 }
 
 extension StarWarsPlanetsRepository: StarWarsPlanetsRepositoryType {
