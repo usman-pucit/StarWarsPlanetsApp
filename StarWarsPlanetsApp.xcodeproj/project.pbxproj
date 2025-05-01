@@ -34,9 +34,22 @@
 		96858BF72DC39030005BE667 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		96858C042DC3ABE1005BE667 /* Exceptions for "StarWarsPlanetsApp" folder in "StarWarsPlanetsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 96858B542DC38850005BE667 /* StarWarsPlanetsApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		96858B572DC38850005BE667 /* StarWarsPlanetsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				96858C042DC3ABE1005BE667 /* Exceptions for "StarWarsPlanetsApp" folder in "StarWarsPlanetsApp" target */,
+			);
 			path = StarWarsPlanetsApp;
 			sourceTree = "<group>";
 		};
@@ -282,6 +295,8 @@
 /* Begin XCBuildConfiguration section */
 		96858B772DC38851005BE667 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 96858B572DC38850005BE667 /* StarWarsPlanetsApp */;
+			baseConfigurationReferenceRelativePath = Environment/Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -345,6 +360,8 @@
 		};
 		96858B782DC38851005BE667 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 96858B572DC38850005BE667 /* StarWarsPlanetsApp */;
+			baseConfigurationReferenceRelativePath = Environment/Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -410,6 +427,7 @@
 				DEVELOPMENT_TEAM = QM2ZXR6S6G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StarWarsPlanetsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -439,6 +457,7 @@
 				DEVELOPMENT_TEAM = QM2ZXR6S6G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StarWarsPlanetsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
