@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StarWarsPlanetsView.swift
 //  StarWarsPlanetsApp
 //
 //  Created by Usman on 01.05.25.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct StarWarsPlanetsView: View {
+    private var viewModel = StarWarsPlanetsViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +22,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    StarWarsPlanetsView()
 }
