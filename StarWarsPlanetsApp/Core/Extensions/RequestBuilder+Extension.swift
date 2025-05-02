@@ -12,7 +12,7 @@ extension RequestBuilder {
     static func planets() throws -> URLRequest {
         let request = RequestBuilder(
             host: EnvironmentConfig.baseURL,
-            path: "/planets/",
+            path: "/api/planets",
             scheme: "https"
         )
         

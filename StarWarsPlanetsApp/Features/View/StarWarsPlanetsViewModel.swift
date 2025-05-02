@@ -9,13 +9,15 @@ import Foundation
 
 // Define a protocol for the view model
 protocol StarWarsPlanetsViewModelType {
-    
+    func fetchPlanets() async
 }
 
 // Mark: - ViewModel
 @Observable
 final class StarWarsPlanetsViewModel {
     private let useCase: StarWarsPlanetsUseCaseType
+    private(set) var planets: [UI.Main.Planet] = []
+    private(set) var error: Error?
     
     init(
         useCase: StarWarsPlanetsUseCaseType = StarWarsPlanetsUseCase()
@@ -25,5 +27,14 @@ final class StarWarsPlanetsViewModel {
 }
 
 extension StarWarsPlanetsViewModel: StarWarsPlanetsViewModelType {
-    // Implement the protocol methods here
+    func fetchPlanets() async {
+        do {
+            let planets = try await useCase.fetchPlanets()
+            self.planets = planets.map { $0.normalize() }
+            print("Fetched planets: \(planets)")
+        } catch {
+            self.error = error
+            print("Error fetching planets: \(error)")
+        }
+    }
 }

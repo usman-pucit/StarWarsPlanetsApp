@@ -9,7 +9,7 @@ import Foundation
 
 // Define a protocol for the use case
 protocol StarWarsPlanetsUseCaseType {
-    
+    func fetchPlanets() async throws -> [Domain.Main.Planet]
 }
 
 // MARK: - UseCase
@@ -24,7 +24,9 @@ final class StarWarsPlanetsUseCase {
 }
 
 extension StarWarsPlanetsUseCase: StarWarsPlanetsUseCaseType {
-    // Implement the protocol methods here
+    func fetchPlanets() async throws -> [Domain.Main.Planet] {
+        try await repository.fetchPlanets()
+    }
 }
     
 

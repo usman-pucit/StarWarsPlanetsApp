@@ -8,46 +8,70 @@
 import Foundation
 
 extension API.Main {
-    struct Planets: Decodable {
-        let count: Int
-        let next: String?
+    struct PlanetResponse: Decodable {
+        let message: String
+        let totalRecords: Int
+        let totalPages: Int
         let previous: String?
-        let results: [Planet]
+        let next: String?
+        let planets: [Planet]
+        let apiVersion: String
+        let timestamp: String
+        let support: SupportInfo
+        let social: SocialLinks
+         
+         enum CodingKeys: String, CodingKey {
+             case message
+             case totalRecords = "total_records"
+             case totalPages = "total_pages"
+             case previous
+             case next
+             case planets = "results"
+             case apiVersion
+             case timestamp
+             case support
+             case social
+         }
     }
 }
 
-extension API.Main.Planets {
+extension API.Main.PlanetResponse {
     struct Planet: Decodable {
+        let uid: String
         let name: String
-        let rotationPeriod: String
-        let orbitalPeriod: String
-        let diameter: String
-        let climate: String
-        let gravity: String
-        let terrain: String
-        let surfaceWater: String
-        let population: String
-        let residents: [String]
-        let films: [String]
-        let created: String
-        let edited: String
         let url: String
-
+    }
+    
+    struct SupportInfo: Decodable {
+        let contact: String
+        let donate: String
+        let partnerDiscounts: PartnerDiscounts
+        
         enum CodingKeys: String, CodingKey {
-            case name
-            case rotationPeriod = "rotation_period"
-            case orbitalPeriod = "orbital_period"
-            case diameter
-            case climate
-            case gravity
-            case terrain
-            case surfaceWater = "surface_water"
-            case population
-            case residents
-            case films
-            case created
-            case edited
-            case url
+            case contact
+            case donate
+            case partnerDiscounts = "partnerDiscounts"
         }
+    }
+    
+    struct PartnerDiscounts: Decodable {
+        let saberMasters: DiscountDetails
+        let heartMath: DiscountDetails
+        
+        enum CodingKeys: String, CodingKey {
+            case saberMasters
+            case heartMath
+        }
+    }
+    
+    struct DiscountDetails: Decodable {
+        let link: String
+        let details: String
+    }
+    
+    struct SocialLinks: Decodable {
+        let discord: String
+        let reddit: String
+        let github: String
     }
 }
