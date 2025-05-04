@@ -18,4 +18,14 @@ extension RequestBuilder {
         
         return try request.build()
     }
+    
+    static func detail(id: String) throws -> URLRequest {
+        let request = RequestBuilder(
+            host: EnvironmentConfig.baseURL,
+            path: "/api/planets/\(id)",
+            scheme: "https"
+        )
+        
+        return try request.build()
+    }
 }

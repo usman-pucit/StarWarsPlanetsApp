@@ -7,20 +7,23 @@
 
 import Foundation
 
-extension UI.Main {
-    struct Planet: Identifiable {
-        var id = UUID()
+extension UI.Planet {
+    struct Item: Identifiable, Hashable {
+        let id: String
         let name: String
+        let url: String
     }
 }
 
 // MARK: Normalizable
-extension Domain.Main.Planet: Normalizable {
-    typealias Output = UI.Main.Planet
+extension Domain.Planet.Item: Normalizable {
+    typealias Output = UI.Planet.Item
     
     func normalize() -> Output {
         Output(
-            name: name
+            id: uid,
+            name: name,
+            url: url
         )
     }
 }

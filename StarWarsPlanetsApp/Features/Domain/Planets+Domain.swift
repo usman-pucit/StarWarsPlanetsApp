@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Domain.Main {
-    struct Planet {
+extension Domain.Planet {
+    struct Item {
         let uid: String
         let name: String
         let url: String
@@ -16,16 +16,16 @@ extension Domain.Main {
 }
 
 // MARK: Noralizable
-extension API.Main.PlanetResponse: Normalizable {
-    typealias Output = [Domain.Main.Planet]
+extension API.Planet.List.Response: Normalizable {
+    typealias Output = [Domain.Planet.Item]
     
     func normalize() -> Output {
         return planets.map { $0.normalize() }
     }
 }
 
-extension API.Main.PlanetResponse.Planet: Normalizable {
-    typealias Output = Domain.Main.Planet
+extension API.Planet.List.Response.Planet: Normalizable {
+    typealias Output = Domain.Planet.Item
     
     func normalize() -> Output {
         Output(

@@ -8,13 +8,18 @@
 import Foundation
 
 enum API  {
-    enum Main {}
+    enum Planet {}
+}
+
+extension API.Planet {
+    enum List { }
+    enum Detail { }
 }
 
 enum Domain {
-    enum Main {}
+    enum Planet {}
 }
 
 enum UI {
-    enum Main {}
+    enum Planet {}
 }

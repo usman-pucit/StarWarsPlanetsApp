@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension API.Main {
-    struct PlanetResponse: Decodable {
+extension API.Planet.List {
+    struct Response: Decodable {
         let message: String
         let totalRecords: Int
         let totalPages: Int
@@ -35,7 +35,7 @@ extension API.Main {
     }
 }
 
-extension API.Main.PlanetResponse {
+extension API.Planet.List.Response {
     struct Planet: Decodable {
         let uid: String
         let name: String
