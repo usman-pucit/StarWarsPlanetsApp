@@ -1,5 +1,5 @@
 //
-//  Details.swift
+//  Detail+API.swift
 //  StarWarsPlanetsApp
 //
 //  Created by Usman on 04.05.25.
@@ -43,7 +43,9 @@ extension API.Planet.Detail.Response {
             case v = "__v"
         }
     }
-    
+}
+
+extension API.Planet.Detail.Response.Planet {
     struct Properties: Decodable {
         let created: String
         let edited: String

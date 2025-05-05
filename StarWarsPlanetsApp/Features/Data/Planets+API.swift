@@ -40,6 +40,12 @@ extension API.Planet.List.Response {
         let uid: String
         let name: String
         let url: String
+        
+        enum CodingKeys: String, CodingKey {
+            case uid
+            case name
+            case url
+        }
     }
     
     struct SupportInfo: Decodable {
@@ -54,6 +60,20 @@ extension API.Planet.List.Response {
         }
     }
     
+    struct SocialLinks: Decodable {
+        let discord: String
+        let reddit: String
+        let github: String
+        
+        enum CodingKeys: String, CodingKey {
+            case discord
+            case reddit
+            case github
+        }
+    }
+}
+
+extension API.Planet.List.Response.SupportInfo {
     struct PartnerDiscounts: Decodable {
         let saberMasters: DiscountDetails
         let heartMath: DiscountDetails
@@ -63,15 +83,16 @@ extension API.Planet.List.Response {
             case heartMath
         }
     }
-    
+}
+
+extension API.Planet.List.Response.SupportInfo.PartnerDiscounts {
     struct DiscountDetails: Decodable {
         let link: String
         let details: String
-    }
-    
-    struct SocialLinks: Decodable {
-        let discord: String
-        let reddit: String
-        let github: String
+        
+        enum CodingKeys: String, CodingKey {
+            case link
+            case details
+        }
     }
 }
