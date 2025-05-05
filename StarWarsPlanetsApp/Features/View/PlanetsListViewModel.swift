@@ -15,9 +15,18 @@ protocol PlanetsListViewModelType {
 // Mark: - ViewModel
 @Observable
 final class PlanetsListViewModel {
+    enum State {
+        case idle
+        case loading
+        case result([UI.Planet.Item])
+        case empty
+        case error(Error)
+    }
+    
+    private(set) var viewState: State = .idle
+        
+    @ObservationIgnored
     private let useCase: PlanetsListUseCaseType
-    private(set) var planets: [UI.Planet.Item] = []
-    private(set) var error: Error?
     
     init(
         useCase: PlanetsListUseCaseType = PlanetsListUseCase()
@@ -29,13 +38,13 @@ final class PlanetsListViewModel {
 extension PlanetsListViewModel: PlanetsListViewModelType {
     @MainActor
     func fetchPlanets() async {
+        viewState = .loading
+        
         do {
             let planets = try await useCase.fetchPlanets()
-            self.planets = planets.map { $0.normalize() }
-            print("Fetched planets: \(planets)")
+            viewState = .result(planets.map { $0.normalize() })
         } catch {
-            self.error = error
-            print("Error fetching planets: \(error)")
+            viewState = .error(error)
         }
     }
 }

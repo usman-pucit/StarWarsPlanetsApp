@@ -13,10 +13,19 @@ protocol PlanetDetailViewModelType {
 
 @Observable
 final class PlanetDetailViewModel {
+    enum State {
+        case idle
+        case loading
+        case result(detail: UI.Planet.Detail)
+        case empty
+        case error(error: Error)
+    }
+    
+    private(set) var viewState: State = .idle
+    
+    @ObservationIgnored
     private let useCase: PlanetDetailUseCaseType
     private let planetId: String
-    private(set) var detail: UI.Planet.Detail?
-    private(set) var error: Error?
     
     init(
         planetId: String,
@@ -29,12 +38,13 @@ final class PlanetDetailViewModel {
     
 extension PlanetDetailViewModel: PlanetDetailViewModelType {
     func fetchDetail() async {
+        viewState = .loading
+        
         do {
             let detail = try await useCase.fetchDetail(id: planetId)
-            self.detail = detail.normalize()
+            viewState = .result(detail: detail.normalize())
         } catch {
-            self.error = error
-            print("Error fetching detail: \(error)")
+            viewState = .error(error: error)
         }
     }
 }
