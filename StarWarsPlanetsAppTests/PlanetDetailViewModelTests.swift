@@ -57,5 +57,29 @@ struct PlanetDetailViewModelTests {
             #expect(Bool(false), "Test failed with unexpected state")
         }
     }
+    
+    @Test("Test 1: fetch detail of planet with no internet connection")
+    func testFetchDetailsWithoutInternet_withFailure_expectNoInternetConnectionError() async throws {
+        // Given
+        let mockResponse = API.Planet.Detail.Response.mock()
+        let request = try RequestBuilder.detail(id: "1")
+        let result = Result<(Data, HTTPURLResponse), Error>.success((try JSONEncoder().encode(mockResponse), HTTPURLResponse()))
+        let service = NetworkServiceMock(request: request, result: result)
+        let networkMonitor = NetworkMonitorMock(isReachable: false)
+        let repository = PlanetsListRepositoryMock(networkService: service, networkMonitor: networkMonitor)
+        let useCase = PlanetDetailUseCaseMock(repository: repository)
+        let sut = PlanetDetailViewModel(planetId: "1", useCase: useCase)
+        
+        // When
+        await sut.fetchDetail()
+        
+        // Then
+        switch sut.viewState {
+        case .error(let error):
+            #expect(error.localizedDescription == NetworkError.noInternetConnection.localizedDescription)
+        default:
+            #expect(Bool(false), "Test failed with unexpected state")
+        }
+    }
 }
 

@@ -12,16 +12,23 @@ import Networking
 class PlanetsListRepositoryMock: PlanetsListRepositoryType {
     private let networkService: NetworkServiceType
     private let jsonMapper: NetworkMapperType
+    private let networkMonitor: NetworkMonitorType
 
     init(
         networkService: NetworkServiceType,
-        jsonMapper: NetworkMapperType = JSONMapper()
+        jsonMapper: NetworkMapperType = JSONMapper(),
+        networkMonitor: NetworkMonitorType = NetworkMonitor()
     ) {
         self.networkService = networkService
         self.jsonMapper = jsonMapper
+        self.networkMonitor = networkMonitor
     }
     
     func fetchPlanets() async throws -> [Domain.Planet.Item] {
+        guard networkMonitor.isReachable else {
+            throw NetworkError.noInternetConnection
+        }
+        
         let request = try RequestBuilder.planets()
         
         let (data, _) = try await networkService.fetch(request)
@@ -32,6 +39,10 @@ class PlanetsListRepositoryMock: PlanetsListRepositoryType {
     }
     
     func fetchDetail(id: String) async throws -> Domain.Planet.Detail {
+        guard networkMonitor.isReachable else {
+            throw NetworkError.noInternetConnection
+        }
+        
         let request = try RequestBuilder.detail(id: id)
         
         let (data, _) = try await networkService.fetch(request)
