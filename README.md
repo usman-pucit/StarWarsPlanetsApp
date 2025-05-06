@@ -15,10 +15,10 @@
   Clear separation of concerns with dedicated namespaces for API, Domain, and UI models.
 
 - **Planets List Screen**  
-  Fetches and displays a list of planets from [SWAPI](https://swapi.dev/api/planets/).
+  Fetches and displays a list of planets from [SWAPI](https://swapi.tech/api/planets/).
 
 - **Planet Detail Screen**  
-  Presents detailed information for a selected planet using [SWAPI](https://swapi.dev/api/planets/{id}).
+  Presents detailed information for a selected planet using [SWAPI](https://swapi.tech/api/planets/{id}).
 
 - **Networking via Swift Package Manager (SPM)**  
   Integrates a local networking module built with `URLSession`.
