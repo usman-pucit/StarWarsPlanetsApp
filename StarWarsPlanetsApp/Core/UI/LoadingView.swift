@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct LoadingView: View {
-    let message: String
+    private let message: String
     
-    init(message: String = "Loading...") {
+    init(
+        message: String = String(format: "%@%@", "progress_loading".localized, "...")
+    ) {
         self.message = message
     }
         
