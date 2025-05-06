@@ -40,7 +40,7 @@ struct GenericErrorView: View {
                 Button(action: retryAction) {
                     HStack(spacing: 8) {
                         Image(systemName: "arrow.clockwise")
-                        Text("Try Again")
+                        Text("try_again_button_title")
                     }
                     .padding(.horizontal, 24)
                     .padding(.vertical, 12)
