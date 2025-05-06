@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9608FC7E2DCA9AB600EB5AE4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9608FC7D2DCA9AB600EB5AE4 /* README.md */; };
 		96858BFB2DC39279005BE667 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 96858BFA2DC39279005BE667 /* Networking */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9608FC7D2DCA9AB600EB5AE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		96858B552DC38850005BE667 /* StarWarsPlanetsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsPlanetsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96858B652DC38851005BE667 /* StarWarsPlanetsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96858B6F2DC38851005BE667 /* StarWarsPlanetsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 		96858B4C2DC38850005BE667 = {
 			isa = PBXGroup;
 			children = (
+				9608FC7D2DCA9AB600EB5AE4 /* README.md */,
 				96858BF72DC39030005BE667 /* Networking */,
 				96858B572DC38850005BE667 /* StarWarsPlanetsApp */,
 				96858B682DC38851005BE667 /* StarWarsPlanetsAppTests */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9608FC7E2DCA9AB600EB5AE4 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +358,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -412,6 +417,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

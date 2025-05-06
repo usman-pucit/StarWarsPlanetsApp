@@ -17,7 +17,7 @@ struct PlanetsListView: View {
                 contentView
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Planets")
+            .navigationTitle("navigation_title_planets")
         }
         .background(Color(.systemBackground))
         .task(id: reloadTrigger) {
@@ -52,7 +52,7 @@ struct PlanetsListView: View {
     }
     
     private var planetListEmptyView: some View {
-        GenericErrorView(errorMessage: "No planets available.") {
+        GenericErrorView(errorMessage: "error_no_planets_available".localized) {
             reloadTrigger = UUID()
         }
     }

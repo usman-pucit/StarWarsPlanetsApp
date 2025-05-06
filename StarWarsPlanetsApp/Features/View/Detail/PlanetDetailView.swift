@@ -33,7 +33,7 @@ struct PlanetDetailView: View {
         case .error(let error):
             GenericErrorView(errorMessage: error.localizedDescription)
         case .empty:
-            GenericErrorView(errorMessage: "Planet detail is not available.")
+            GenericErrorView(errorMessage: "error_planet_detail_unavailable".localized)
         }
     }
     
