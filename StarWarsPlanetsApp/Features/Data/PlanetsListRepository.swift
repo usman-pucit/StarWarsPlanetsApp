@@ -18,19 +18,27 @@ protocol PlanetsListRepositoryType {
 final class PlanetsListRepository {
     private let networkService: NetworkServiceType
     private let jsonMapper: NetworkMapperType
+    private let networkMonitor: NetworkMonitorType
     
     init(
         networkService: NetworkServiceType = NerworkService(),
-        jsonMapper: NetworkMapperType = JSONMapper()
+        jsonMapper: NetworkMapperType = JSONMapper(),
+        networkMonitor: NetworkMonitorType = NetworkMonitor()
     ) {
 
         self.networkService = networkService
         self.jsonMapper = jsonMapper
+        self.networkMonitor = networkMonitor
     }
 }
 
 extension PlanetsListRepository: PlanetsListRepositoryType {
     func fetchPlanets() async throws -> [Domain.Planet.Item] {
+        // Check network connectivity
+        guard networkMonitor.isReachable else {
+            throw NetworkError.noInternetConnection
+        }
+        
         // Create a request to fetch planets
         let request = try RequestBuilder.planets()
         
@@ -45,6 +53,11 @@ extension PlanetsListRepository: PlanetsListRepositoryType {
     }
     
     func fetchDetail(id: String) async throws -> Domain.Planet.Detail {
+        // Check network connectivity
+        guard networkMonitor.isReachable else {
+            throw NetworkError.noInternetConnection
+        }
+        
         // Create a request to fetch planets
         let request = try RequestBuilder.detail(id: id)
         
