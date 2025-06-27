@@ -1,7 +1,7 @@
 
 # StarWarsPlanetsApp
 
-**StarWarsPlanetsApp** is a lightweight iOS application designed as a coding assessment. It displays a list of planets from the Star Wars universe, with detailed information fetched from the Star Wars API (SWAPI).
+**StarWarsPlanetsApp** is a lightweight iOS application. It displays a list of planets from the Star Wars universe, with detailed information fetched from the Star Wars API (SWAPI).
 
 ## 🚀 Key Features
 
